@@ -48,3 +48,16 @@ curl -X POST http://localhost:8193/api/payments/FastPay/charge \
 2. Write an adapter implementing `IPaymentProcessor`.
 3. Add a `ProviderType` value, register it in DI and in `PaymentProcessorFactory`. Nothing else changes.
 # adapter-pattern
+
+## React frontend (`ClientApp/`)
+
+Vite + React 18 + Tailwind 3, mobile-first (single column on phones, two-column forms from `md`). Pick a provider, charge, and the transaction ID auto-fills the refund form; every response is listed below.
+
+```bash
+# terminal 1 – backend on :8193
+ASPNETCORE_URLS=http://localhost:8193 dotnet run --no-launch-profile
+# terminal 2 – frontend on :8194 (proxies /api to :8193)
+cd ClientApp && npm install && npm run dev
+```
+
+Open http://localhost:8194.
